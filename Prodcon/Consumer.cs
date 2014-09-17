@@ -10,7 +10,11 @@ namespace Prodcon
     {
         public void Run()
         {
-            Console.WriteLine("Comsumer added to buffer");
+            for (int i = 0; i < UPPER; i++)
+            {
+                Console.WriteLine("Comsumer added to buffer");
+            }
+            
         }
     }
 }

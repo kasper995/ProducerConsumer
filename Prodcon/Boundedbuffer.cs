@@ -9,15 +9,21 @@ namespace Prodcon
 {
     class Boundedbuffer
     {
-        public Queue<int> queue = new Queue<int>();
+        private int Capacitet;
+        private Queue<int> queue = new Queue<int>();
 
-        private int BoundedBuffer;
 
-     
-        public bool IsFull()
+        public Boundedbuffer(int Cap)
+        {
+            Capacitet = Cap;
+        }
+       
+
+        
+       public bool IsFull()
         {
             
-            if (BoundedBuffer <= 4)
+            if (4 <= Capacitet)
             {
                 return true;
                 
@@ -29,20 +35,21 @@ namespace Prodcon
             }
        }
 
-        public int Put()
+        public void Put(int element)
         {
-            queue.Enqueue(0);
+            queue.Enqueue(element);
         }
 
         public int Take()
         {
-            queue.Dequeue();
+            var temp = queue.Dequeue();
+            return temp;
         }
 
-        public int read()
-        {
-            queue.Peek();
-        }
+        //public int read()
+        //{
+        //    queue.Peek();
+        //}
 
     
 
