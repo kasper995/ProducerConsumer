@@ -36,6 +36,11 @@ namespace Prodcon
             queue.Dequeue();
         }
 
+        public int read()
+        {
+            queue.Peek();
+        }
+
     
 
     }
