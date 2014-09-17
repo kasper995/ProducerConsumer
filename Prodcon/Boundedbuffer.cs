@@ -23,21 +23,24 @@ namespace Prodcon
        public bool IsFull()
         {
             
-            if (4 <= Capacitet)
+            if (queue.Count >= Capacitet)
             {
                 return true;
                 
             }
             
-        else
-            {
+        
                 return false;
-            }
+            
        }
 
         public void Put(int element)
         {
-            queue.Enqueue(element);
+            if (IsFull() == false)
+            {
+                queue.Enqueue(element);
+            }
+           
         }
 
         public int Take()
