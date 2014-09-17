@@ -15,7 +15,7 @@ namespace Prodcon
             Producer prod = new Producer(10);
             Consumer con = new Consumer();
 
-            Parallel.Invoke(prod.run(), con.Run());
+            Parallel.Invoke(prod.run, con.Run);
         }
     }
 }

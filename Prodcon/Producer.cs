@@ -11,8 +11,8 @@ namespace Prodcon
         
         public void run()
         {
-            
-            Console.WriteLine("Producer added to buffer");
+
+           Console.WriteLine("Producer added to buffer");
         }
     }
 }
