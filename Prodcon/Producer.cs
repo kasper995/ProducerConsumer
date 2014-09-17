@@ -8,7 +8,11 @@ namespace Prodcon
 {
     class Producer
     {
+        
         public void run()
-        { }
+        {
+            
+            Console.WriteLine("Producer added to buffer");
+        }
     }
 }

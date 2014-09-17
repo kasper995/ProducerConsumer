@@ -9,6 +9,8 @@ namespace Prodcon
     class Consumer
     {
         public void Run()
-        {}
+        {
+            Console.WriteLine("Comsumer added to buffer");
+        }
     }
 }
