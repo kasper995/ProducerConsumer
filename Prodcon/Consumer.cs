@@ -8,5 +8,7 @@ namespace Prodcon
 {
     class Consumer
     {
+        public void Run()
+        {}
     }
 }

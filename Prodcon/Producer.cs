@@ -8,5 +8,7 @@ namespace Prodcon
 {
     class Producer
     {
+        public void run()
+        { }
     }
 }

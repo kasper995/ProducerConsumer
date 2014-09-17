@@ -17,12 +17,13 @@ namespace Prodcon
             
             if (BoundedBuffer <= 4)
             {
-                return false;
+                return true;
+                
             }
             
         else
             {
-                return true;
+                return false;
             }
        }
 
