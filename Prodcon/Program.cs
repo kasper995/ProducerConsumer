@@ -16,6 +16,7 @@ namespace Prodcon
             Consumer con = new Consumer(buf, 10);
 
             Parallel.Invoke(prod.run, con.Run);
+            Console.ReadLine();
         }
     }
 }
