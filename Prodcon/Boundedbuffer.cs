@@ -35,11 +35,7 @@ namespace Prodcon
 
         }
 
-        public bool IsEmpty()
-        {
-            return true;
-        }
-
+        
         public void Put(int element)
         {
             if (IsFull() == false)
