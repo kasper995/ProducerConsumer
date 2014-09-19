@@ -8,11 +8,21 @@ namespace Prodcon
 {
     class Consumer
     {
+        private Boundedbuffer _buffer;
+        private int _max;
+           
+        public Consumer(Boundedbuffer buffer, int expectedAmount)
+        {
+            this._buffer = buffer;
+            this._max = expectedAmount;
+        }
         public void Run()
         {
-            for (int i = 0; i < UPPER; i++)
+            for (int i = 0; i < this._max; i++)
             {
-                Console.WriteLine("Comsumer added to buffer");
+               int temp = this._buffer.Take();
+                Console.WriteLine("Consumer just took {0} from the buffer", temp);
+
             }
             
         }

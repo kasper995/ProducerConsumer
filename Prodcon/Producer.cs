@@ -8,14 +8,23 @@ namespace Prodcon
 {
     class Producer
     {
-        
+        private int _max;
+
+        private Boundedbuffer _buffer;
+        public Producer(Boundedbuffer buffer, int howManyToProduce)
+        {
+            this._max = howManyToProduce;
+            this._buffer = buffer;
+        }
+
         public void run()
         {
-            for (int i = 0; i < UPPER; i++)
+            for (int i = 0; i < this._max; i++)
             {
-                Console.WriteLine("Producer added to buffer");
+                this._buffer.Put(i);
+                Console.WriteLine("Producer added {0} to the buffer", i);
             }
-         
+
         }
     }
 }

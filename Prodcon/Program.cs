@@ -12,8 +12,8 @@ namespace Prodcon
         {
             Boundedbuffer buf = new Boundedbuffer(4);
 
-            Producer prod = new Producer(10);
-            Consumer con = new Consumer();
+            Producer prod = new Producer(buf, 10);
+            Consumer con = new Consumer(buf, 10);
 
             Parallel.Invoke(prod.run, con.Run);
         }
