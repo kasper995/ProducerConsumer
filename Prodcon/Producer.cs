@@ -21,8 +21,11 @@ namespace Prodcon
         {
             for (int i = 0; i < this._max; i++)
             {
-                this._buffer.Put(i);
-                Console.WriteLine("Producer added {0} to the buffer", i);
+                
+                
+                    this._buffer.Put(i);
+                   
+                
             }
 
         }

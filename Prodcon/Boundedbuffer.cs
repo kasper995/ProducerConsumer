@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Prodcon
@@ -29,32 +30,49 @@ namespace Prodcon
                 return true;
 
             }
+            else
+            {
+                return false;
+            }
 
-
-            return false;
+            
 
         }
 
         
         public void Put(int element)
         {
-            if (IsFull() == false)
+            lock (_queue)
             {
-                this._queue.Enqueue(element);
+                while (IsFull())
+                {
+                    Monitor.Wait(_queue);
+                }
+                
+                _queue.Enqueue(element);
+                //Console.WriteLine("The value {0} was added to the buffer on thread >X<", element);
+                Monitor.PulseAll(_queue);
             }
 
         }
 
         public int Take()
         {
-            while (this._queue.Count == 0)
+            lock (_queue)
             {
+                while (_queue.Count == 0)
+                {
+                    Monitor.Wait(_queue);
 
+                }
+                
+                int temp = _queue.Dequeue();
+                //Console.WriteLine("The value {0} was takened from the buffer on thread >X< ", temp);
+                Monitor.PulseAll(_queue);
+                return temp;
+                
             }
-
-            int temp = this._queue.Dequeue();
-            return temp;
-
+            
 
 
         }
